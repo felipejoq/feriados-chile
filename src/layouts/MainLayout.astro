@@ -1,0 +1,54 @@
+---
+import SocialCover from '@media/social-cover.jpg';
+
+interface Props {
+    title?: string;
+    description?: string;
+    socialImage?: string;
+}
+
+const year = new Date().getFullYear();
+
+const {
+    title = `Feriados Chilenos - ${year}`,
+    description = `Lista completa de los feriados en Chile para el año ${year}`,
+    socialImage= SocialCover.src
+} = Astro.props;
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <!-- add favicon -->
+    <link rel="icon" type="image/icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <!-- socials meta -->
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:image" content={socialImage}/>
+    <meta property="og:url" content={Astro.url}/>
+
+    <!-- SEO -->
+    <meta name="description" content={description}/>
+    <meta name="author" content="Feriados.app"/>
+
+    <!-- canonical -->
+    <link rel="canonical" href={Astro.url}/>
+
+    <title>{title}</title>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <slot/>
+<footer class="text-center text-sm text-gray-600 my-[50px]">
+    <p >
+        Feriados de Chile {year} - Feriados.app
+    </p>
+    <p>
+        <small>
+            Desarrollado por 👨‍💻 <a href="https://uncodigo.com" target="_blank" rel="external">Felipe Jofré Quevedo</a>
+        </small>
+    </p>
+</footer>
+</body>
+</html>
