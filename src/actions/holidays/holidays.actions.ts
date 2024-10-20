@@ -5,8 +5,8 @@ import {CHILE_AUSTRAL, CHILE_CONTINENTAL, CHILE_PENINSULAR} from "@utils/date.ts
 
 const isSundayInTimeZone = (timeZone: string): boolean => {
     const date = new Date();
-    const day = new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone }).format(date);
-    return day === 'Sunday';
+    const day = new Intl.DateTimeFormat('es-CL', { weekday: 'long', timeZone }).format(date);
+    return String(day).toLowerCase() === 'domingo';
 };
 
 export const TodayIsHoliday = defineAction({
