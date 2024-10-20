@@ -6,7 +6,7 @@ import {format} from "@formkit/tempo";
 const isSundayInTimeZone = (): boolean => {
     const date = new Date();
     const day = format(date, "dddd", "cl");
-    return day === "domingo";
+    return day === "Sunday";
 };
 
 export const TodayIsHoliday = defineAction({
@@ -20,16 +20,6 @@ export const TodayIsHoliday = defineAction({
         const result = [];
 
         // Check if today is Sunday in Chile Continental
-        if (isSundayInTimeZone()) {
-            result.push(holidays[0]);
-        }
-
-        // Check if today is Sunday in Chile Austral
-        if (isSundayInTimeZone()) {
-            result.push(holidays[0]);
-        }
-
-        // Check if today is Sunday in Chile Peninsular
         if (isSundayInTimeZone()) {
             result.push(holidays[0]);
         }

@@ -1,6 +1,6 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import {TodayIsHoliday} from "@components/TodayIsHoliday.tsx";
+import TodayIsHoliday from "../components/TodayIsHoliday.astro";
 import {HolidayCard} from "@components/cards/HolidayCard.tsx";
 import {Timer} from "@components/Timer.tsx";
 import type {Holiday} from "@data/2024/holidays";
@@ -18,13 +18,13 @@ const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
             Feriados en Chile {format(new Date(), "YYYY", "cl")}
         </h1>
 
-        <div class="text-center min-h-[40px]">
+        <div class="text-center min-h-9">
             <Timer client:only="react"/>
         </div>
 
         <!-- hoy es feriado? -->
-        <div class="min-h-[80px]">
-            <TodayIsHoliday client:only="react"/>
+        <div class="min-h-[190px]">
+            <TodayIsHoliday client:load />
         </div>
 
         <!-- Feriados Generales -->
