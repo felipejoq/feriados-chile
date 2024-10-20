@@ -1,12 +1,12 @@
 import {defineAction} from "astro:actions";
 import {z} from "astro:schema";
 import {holidays} from "@data/2024/holidays.ts";
-import {CHILE_AUSTRAL, CHILE_CONTINENTAL, CHILE_PENINSULAR} from "@utils/date.ts";
+import {format} from "@formkit/tempo";
 
-const isSundayInTimeZone = (timeZone: string): boolean => {
+const isSundayInTimeZone = (): boolean => {
     const date = new Date();
-    const day = new Intl.DateTimeFormat('es-CL', { weekday: 'long', timeZone }).format(date);
-    return String(day).toLowerCase() === 'domingo';
+    const day = format(date, "dddd", "cl");
+    return day === "domingo";
 };
 
 export const TodayIsHoliday = defineAction({
@@ -20,17 +20,17 @@ export const TodayIsHoliday = defineAction({
         const result = [];
 
         // Check if today is Sunday in Chile Continental
-        if (isSundayInTimeZone(CHILE_CONTINENTAL)) {
+        if (isSundayInTimeZone()) {
             result.push(holidays[0]);
         }
 
         // Check if today is Sunday in Chile Austral
-        if (isSundayInTimeZone(CHILE_AUSTRAL)) {
+        if (isSundayInTimeZone()) {
             result.push(holidays[0]);
         }
 
         // Check if today is Sunday in Chile Peninsular
-        if (isSundayInTimeZone(CHILE_PENINSULAR)) {
+        if (isSundayInTimeZone()) {
             result.push(holidays[0]);
         }
 
