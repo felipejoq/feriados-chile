@@ -1,40 +1,31 @@
-import React, {useEffect} from "react";
-import {format} from "@formkit/tempo";
+import React, {useEffect, useState} from "react";
+import {clock, longDate} from "@utils/date.ts";
 
 export const Timer: React.FC = () => {
 
-    const longDate = (date: Date) =>{
-        const day = format(date, "dddd", "cl");
-        const month = format(date, "MMMM", "cl");
-        const dayNumber = format(date, "DD", "cl");
-        const year = format(date, "YYYY", "cl");
-        return `${day.charAt(0).toUpperCase() + day.slice(1)}, ${dayNumber} de ${month} de ${year}`;
-    }
-
-    const clock = () => {
-        const date = new Date();
-        const longDateToday = longDate(date);
-        const hours = format(date, "HH", "cl");
-        const minutes = format(date, "mm", "cl");
-        const seconds = format(date, "ss", "cl");
-        return `${longDateToday} - ${hours}:${minutes}:${seconds}`;
-    }
-
+    const [date, setDate] = useState<string>(longDate())
     const [time, setTime] = React.useState<string>(clock());
 
     useEffect(() => {
         const interval = setInterval(() => {
+            setDate(longDate());
             setTime(clock());
         }, 1000);
         return () => clearInterval(interval);
-    }, [time]);
+    }, [time, date]);
 
 
     return (
         <>
-            {
-                time
-            }
+            <span>
+                {date}
+            </span>
+            <span className="ml-3 text-center">
+                -
+            </span>
+            <span className="w-20 text-center inline-block">
+                {time}
+            </span>
         </>
     )
 }

@@ -3,9 +3,8 @@ import MainLayout from "@layouts/MainLayout.astro";
 import {TodayIsHoliday} from "@components/TodayIsHoliday.tsx";
 import {HolidayCard} from "@components/cards/HolidayCard.tsx";
 import {Timer} from "@components/Timer.tsx";
-import {currentYear} from "@utils/date";
-
 import type {Holiday} from "@data/2024/holidays";
+import {format} from "@formkit/tempo"
 
 import {actions} from "astro:actions";
 
@@ -16,11 +15,11 @@ const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
 <MainLayout>
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold text-center my-4">
-            Feriados en Chile {currentYear}
+            Feriados en Chile {format(new Date(), "YYYY", "cl")}
         </h1>
 
         <div class="text-center min-h-[40px]">
-            <Timer client:load/>
+            <Timer client:only="react"/>
         </div>
 
         <!-- hoy es feriado? -->
