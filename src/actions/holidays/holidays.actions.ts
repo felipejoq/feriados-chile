@@ -1,10 +1,7 @@
 import {defineAction} from "astro:actions";
 import {z} from "astro:schema";
 import {holidays} from "@data/2024/holidays.ts";
-
-const CHILE_CONTINENTAL = 'America/Santiago';
-const CHILE_AUSTRAL = 'America/Punta_Arenas';
-const CHILE_PENINSULAR = 'Pacific/Easter';
+import {CHILE_AUSTRAL, CHILE_CONTINENTAL, CHILE_PENINSULAR} from "@utils/date.ts";
 
 const isSundayInTimeZone = (timeZone: string): boolean => {
     const date = new Date();
