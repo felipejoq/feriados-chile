@@ -7,6 +7,7 @@ export type Holiday = {
     irrenunciable?: boolean;
     reason?: string;
     beneficiaries?: string;
+    jsDate: Date | undefined;
 };
 
 export const holidays: Holiday[] = [
@@ -15,7 +16,8 @@ export const holidays: Holiday[] = [
         date: "", // Sin fecha exacta
         holiday: "Día Domingo",
         type: "Civil",
-        legalSupport: "Ley 2.977"
+        legalSupport: "Ley 2.977",
+        jsDate: undefined,
     },
     {
         day: "Lunes, 01 de Enero",
@@ -23,21 +25,24 @@ export const holidays: Holiday[] = [
         holiday: "Año Nuevo",
         type: "Civil",
         legalSupport: "Ley 2.977, Ley 19.973",
-        irrenunciable: true
+        irrenunciable: true,
+        jsDate: new Date("2024-01-01")
     },
     {
         day: "Viernes, 29 de Marzo",
         date: "29-03-2024",
         holiday: "Viernes Santo",
         type: "Religioso",
-        legalSupport: "Ley 2.977"
+        legalSupport: "Ley 2.977",
+        jsDate: new Date("2024-03-29"),
     },
     {
         day: "Sábado, 30 de Marzo",
         date: "30-03-2024",
         holiday: "Sábado Santo",
         type: "Religioso",
-        legalSupport: "Ley 2.977"
+        legalSupport: "Ley 2.977",
+        jsDate: new Date("2024-03-30"),
     },
     {
         day: "Miércoles, 01 de Mayo",
@@ -45,14 +50,16 @@ export const holidays: Holiday[] = [
         holiday: "Día Nacional del Trabajo",
         type: "Civil",
         legalSupport: "Código del Trabajo, Ley 19.973",
-        irrenunciable: true
+        irrenunciable: true,
+        jsDate: new Date("2024-05-01"),
     },
     {
         day: "Martes, 21 de Mayo",
         date: "21-05-2024",
         holiday: "Día de las Glorias Navales",
         type: "Civil",
-        legalSupport: "Ley 2.977"
+        legalSupport: "Ley 2.977",
+        jsDate: new Date("2024-05-21"),
     },
     {
         day: "Domingo, 09 de Junio",
@@ -60,35 +67,40 @@ export const holidays: Holiday[] = [
         holiday: "Elecciones Primarias Alcaldes y Gobernadores",
         type: "Civil",
         legalSupport: "Ley 18.700, Ley 19.973",
-        irrenunciable: true
+        irrenunciable: true,
+        jsDate: new Date("2024-06-09"),
     },
     {
         day: "Jueves, 20 de Junio",
         date: "20-06-2024",
         holiday: "Día Nacional de los Pueblos Indígenas",
         type: "Civil",
-        legalSupport: "Ley 21.357"
+        legalSupport: "Ley 21.357",
+        jsDate: new Date("2024-06-20"),
     },
     {
         day: "Sábado, 29 de Junio",
         date: "29-06-2024",
         holiday: "San Pedro y San Pablo",
         type: "Religioso",
-        legalSupport: "Ley 2.977, Ley 18.432, Ley 19.668"
+        legalSupport: "Ley 2.977, Ley 18.432, Ley 19.668",
+        jsDate: new Date("2024-06-29"),
     },
     {
         day: "Martes, 16 de Julio",
         date: "16-07-2024",
         holiday: "Día de la Virgen del Carmen",
         type: "Religioso",
-        legalSupport: "Ley 20.148"
+        legalSupport: "Ley 20.148",
+        jsDate: new Date("2024-07-16"),
     },
     {
         day: "Jueves, 15 de Agosto",
         date: "15-08-2024",
         holiday: "Asunción de la Virgen",
         type: "Religioso",
-        legalSupport: "Ley 2.977"
+        legalSupport: "Ley 2.977",
+        jsDate: new Date("2024-08-15"),
     },
     {
         day: "Miércoles, 18 de Septiembre",
@@ -96,7 +108,8 @@ export const holidays: Holiday[] = [
         holiday: "Independencia Nacional",
         type: "Civil",
         legalSupport: "Ley 2.977, Ley 19.973",
-        irrenunciable: true
+        irrenunciable: true,
+        jsDate: new Date("2024-09-18"),
     },
     {
         day: "Jueves, 19 de Septiembre",
@@ -104,21 +117,33 @@ export const holidays: Holiday[] = [
         holiday: "Día de las Glorias del Ejército",
         type: "Civil",
         legalSupport: "Ley 2.977, Ley 20.629",
-        irrenunciable: true
+        irrenunciable: true,
+        jsDate: new Date("2024-09-19"),
     },
     {
         day: "Viernes, 20 de Septiembre",
         date: "20-09-2024",
         holiday: "Feriado Adicional Fiestas Patrias",
         type: "Civil",
-        legalSupport: "Ley 20.215"
+        legalSupport: "Ley 20.215",
+        jsDate: new Date("2024-09-20"),
     },
     {
         day: "Sábado, 12 de Octubre",
         date: "12-10-2024",
         holiday: "Encuentro de Dos Mundos",
         type: "Civil",
-        legalSupport: "Ley 3.810, Ley 19.668"
+        legalSupport: "Ley 3.810, Ley 19.668",
+        jsDate: new Date("2024-10-12"),
+    },
+    {
+        day: "Sábado, 26 de Octubre",
+        date: "26-10-2024",
+        holiday: "Elecciones Municipales, Consejeros Regionales y Gobernadores Regionales",
+        type: "Civil",
+        legalSupport: "Ley 18.700, Ley 19.973",
+        irrenunciable: true,
+        jsDate: new Date("2024-10-26"),
     },
     {
         day: "Domingo, 27 de Octubre",
@@ -126,21 +151,24 @@ export const holidays: Holiday[] = [
         holiday: "Elecciones Municipales, Consejeros Regionales y Gobernadores Regionales",
         type: "Civil",
         legalSupport: "Ley 18.700, Ley 19.973",
-        irrenunciable: true
+        irrenunciable: true,
+        jsDate: new Date("2024-10-27"),
     },
     {
         day: "Jueves, 31 de Octubre",
         date: "31-10-2024",
         holiday: "Día de las Iglesias Evangélicas y Protestantes",
         type: "Religioso",
-        legalSupport: "Ley 20.299"
+        legalSupport: "Ley 20.299",
+        jsDate: new Date("2024-10-31"),
     },
     {
         day: "Viernes, 01 de Noviembre",
         date: "01-11-2024",
         holiday: "Día de Todos los Santos",
         type: "Religioso",
-        legalSupport: "Ley 2.977"
+        legalSupport: "Ley 2.977",
+        jsDate: new Date("2024-11-01"),
     },
     {
         day: "Domingo, 24 de Noviembre",
@@ -148,14 +176,16 @@ export const holidays: Holiday[] = [
         holiday: "Segunda Vuelta Elección Gobernadores Regionales",
         type: "Civil",
         legalSupport: "Ley 18.700, Ley 19.973",
-        irrenunciable: true
+        irrenunciable: true,
+        jsDate: new Date("2024-11-24"),
     },
     {
         day: "Domingo, 08 de Diciembre",
         date: "08-12-2024",
         holiday: "Inmaculada Concepción",
         type: "Religioso",
-        legalSupport: "Ley 2.977"
+        legalSupport: "Ley 2.977",
+        jsDate: new Date("2024-12-08"),
     },
     {
         day: "Miércoles, 25 de Diciembre",
@@ -163,27 +193,31 @@ export const holidays: Holiday[] = [
         holiday: "Navidad",
         type: "Religioso",
         legalSupport: "Ley 2.977, Ley 19.973",
-        irrenunciable: true
+        irrenunciable: true,
+        jsDate: new Date("2024-12-25"),
     },
     {
         day: "Viernes, 07 de Junio",
         date: "07-06-2024",
         reason: "Asalto y Toma del Morro de Arica",
         beneficiaries: "Región de Arica y Parinacota",
-        legalSupport: "Ley 20.663"
+        legalSupport: "Ley 20.663",
+        jsDate: new Date("2024-06-07"),
     },
     {
         day: "Martes, 20 de Agosto",
         date: "20-08-2024",
         reason: "Nacimiento del Prócer de la Independencia",
         beneficiaries: "Comunas de Chillán y Chillán Viejo",
-        legalSupport: "Ley 16.535, Ley 20.768"
+        legalSupport: "Ley 16.535, Ley 20.768",
+        jsDate: new Date("2024-08-20"),
     },
     {
         day: "Martes, 31 de Diciembre",
         date: "31-12-2024",
         reason: "Feriado Bancario",
         beneficiaries: "Trabajadores de Instituciones Bancarias",
-        legalSupport: "Ley General de Bancos"
+        legalSupport: "Ley General de Bancos",
+        jsDate: new Date("2024-12-31"),
     }
 ];

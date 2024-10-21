@@ -1,21 +1,32 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import {TodayIsHoliday} from "../components/TodayIsHoliday";
+import {TodayIsHoliday} from "@components/TodayIsHoliday";
 import {HolidayCard} from "@components/cards/HolidayCard";
 import {Timer} from "@components/Timer";
 import type {Holiday} from "@data/2024/holidays";
-import {format} from "@formkit/tempo"
+import {format, isAfter, isBefore} from "@formkit/tempo"
 
 import {actions} from "astro:actions";
 
+const currentYear = format(new Date(), "YYYY", "cl");
+
 const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
 
+// Get next holidays from today
+const nextHolidays = data.filter((item: Holiday) => {
+    return item.jsDate !== undefined && isAfter(item.jsDate, new Date());
+});
+
+// Get last holidays from today
+const lastHolidays = data.filter((item: Holiday) => {
+    return item.jsDate !== undefined && isBefore(item.jsDate, new Date());
+});
 ---
 
 <MainLayout>
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold text-center my-4">
-            Feriados en Chile {format(new Date(), "YYYY", "cl")}
+            Feriados en Chile {currentYear}
         </h1>
 
         <div class="text-center min-h-9">
@@ -24,19 +35,45 @@ const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
 
         <!-- hoy es feriado? -->
         <div class="min-h-[190px]">
-            <TodayIsHoliday client:load />
+            <TodayIsHoliday client:load/>
         </div>
 
         <!-- Feriados Generales -->
         <section class="mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Feriados Generales</h2>
+            <h2 class="text-2xl font-semibold mb-4">
+                ¿Qué feriados {currentYear} van quedando?
+            </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
-                    data.map((item: Holiday) => (
+                    nextHolidays.map((item: Holiday) => (
                             <HolidayCard holiday={item}/>
                     ))
                 }
             </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">
+                Feriados que ya pasaron
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {
+                    lastHolidays.map((item: Holiday) => (
+                            <HolidayCard holiday={item}/>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">
+                Feriados por año
+            </h2>
+            <ul class="flex flex-wrap">
+                <li class="bg-gray-500 text-white p-2 rounded hover:bg-gray-200 hover:text-gray-500 hover:font-bold">
+                    <a href="/2024">Feriados 2024</a>
+                </li>
+            </ul>
         </section>
     </div>
 </MainLayout>
