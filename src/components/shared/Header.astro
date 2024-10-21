@@ -1,0 +1,19 @@
+---
+interface Props {
+    title: string;
+    currentYear?: number;
+    href?: string;
+}
+
+const {
+    title,
+    currentYear,
+    href = "/"
+} = Astro.props;
+---
+
+<header class="pt-10">
+    <h1 class="text-4xl font-bold text-center">
+        <a href={href}>{title} {currentYear}</a>
+    </h1>
+</header>

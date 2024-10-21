@@ -7,8 +7,9 @@ import type {Holiday} from "@data/2024/holidays";
 import {format, isAfter, isBefore} from "@formkit/tempo"
 
 import {actions} from "astro:actions";
+import Header from "../components/shared/Header.astro";
 
-const currentYear = format(new Date(), "YYYY", "cl");
+const currentYear = Number(format(new Date(), "YYYY", "cl"));
 
 const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
 
@@ -24,10 +25,12 @@ const lastHolidays = data.filter((item: Holiday) => {
 ---
 
 <MainLayout>
+    <Header
+        title="Feriados Chile"
+        currentYear={currentYear}
+        href="/"
+    />
     <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold text-center my-4">
-            Feriados en Chile {currentYear}
-        </h1>
 
         <div class="text-center min-h-9">
             <Timer client:only="react"/>
@@ -70,7 +73,7 @@ const lastHolidays = data.filter((item: Holiday) => {
                 Feriados por año
             </h2>
             <ul class="flex flex-wrap">
-                <li class="bg-gray-500 text-white p-2 rounded hover:bg-gray-200 hover:text-gray-500 hover:font-bold">
+                <li class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-500 hover:font-bold">
                     <a href="/2024">Feriados 2024</a>
                 </li>
             </ul>

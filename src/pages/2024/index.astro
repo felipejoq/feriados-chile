@@ -6,21 +6,22 @@ import type {Holiday} from "@data/2024/holidays";
 import {format} from "@formkit/tempo"
 
 import {actions} from "astro:actions";
+import Header from "../../components/shared/Header.astro";
 
 const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
 
-const currentYear = format(new Date(), "YYYY", "cl");
 ---
 
-<MainLayout>
+<MainLayout
+        title="Todos los feriados de Chile año 2024"
+        description="Lista completa de los feriados en Chile para el año 2024"
+>
+    <Header
+            title="Feriados Chile"
+            currentYear={2024}
+            href="/"
+    />
     <div class="container mx-auto p-4">
-        <a href="/">
-            <h1 class="text-3xl font-bold text-center my-4">
-
-                Feriados en Chile {currentYear}
-            </h1>
-        </a>
-
         <div class="text-center min-h-9">
             <Timer client:only="react"/>
         </div>
