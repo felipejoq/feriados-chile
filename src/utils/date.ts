@@ -2,12 +2,13 @@ import { format } from "@formkit/tempo"
 
 
 export const longDate = () =>{
-    return format({
+    const date = format({
         date: new Date(),
         format: "dddd, DD MMMM YYYY",
         tz: "America/Santiago",
         locale: "es",
     });
+    return date.charAt(0).toUpperCase() + date.slice(1);
 }
 
 export const clock = () => {
