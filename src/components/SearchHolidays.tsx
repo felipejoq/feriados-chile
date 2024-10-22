@@ -14,7 +14,7 @@ export const SearchHolidays: React.FC<Props> = ({holidays}) => {
         if (!search) return [];
 
         return holidays.filter((holiday) => {
-            const holidayString = `${holiday.day} ${holiday.holiday} ${holiday.type} ${holiday.reason} ${holiday.beneficiaries} ${holiday.legalSupport}`;
+            const holidayString = `${holiday.date} ${holiday.description} ${holiday.type} ${holiday.beneficiaries} ${holiday.legalSupport}`;
             return holidayString.toLowerCase().includes(search.toLowerCase());
         });
     }
@@ -34,9 +34,9 @@ export const SearchHolidays: React.FC<Props> = ({holidays}) => {
                     type="text" placeholder="Buscar feriado"/>
             </search>
             <ul>
-                {filteredHolidays.map((item) => (
-                    <li key={item.day}>
-                        <span>{item.holiday}</span>
+                {filteredHolidays.map((item, index) => (
+                    <li key={index}>
+                        <span>{item.description}</span>
                     </li>
                 ))}
             </ul>

@@ -1,5 +1,5 @@
 import React from "react";
-import {format} from "@formkit/tempo";
+import {format, parse} from "@formkit/tempo";
 import {type Holiday, HolidayType} from "@data/2024/holidays.ts";
 
 interface Props {
@@ -8,7 +8,16 @@ interface Props {
 
 export const HolidayCard: React.FC<Props> = ({holiday}) => {
 
-    const date = format(holiday.date!, "full", "es");
+    if(holiday.date === undefined) {
+        holiday.date = new Date();
+    }
+
+    const date = format({
+        date: parse(holiday.date.toISOString(), "YYYY-MM-DD", "es-CL"),
+        format: "full",
+        locale: "es",
+        tz: "America/Santiago",
+    });
     const capitalizeDate = date.charAt(0).toUpperCase() + date.slice(1);
 
     const isDifferent = holiday.type === HolidayType.Special || holiday.type === HolidayType.Local;

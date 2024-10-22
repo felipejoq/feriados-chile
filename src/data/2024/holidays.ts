@@ -18,7 +18,7 @@ export type Holiday = {
 export const holidays: Holiday[] = [
     {
         date: undefined,
-        description: "Día Domingo",
+        description: "Todos los días Domingos",
         type: HolidayType.Civil,
         irrenunciable: false,
         legalSupport: "Ley 2.977",

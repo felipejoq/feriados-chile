@@ -16,7 +16,6 @@ const currentYear = Number(format({
 }));
 
 const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
-const {data:getDate} = await actions.GetDate({}) as { data: string };
 
 // Get next holidays from today
 const nextHolidays = data.filter((item: Holiday) => {

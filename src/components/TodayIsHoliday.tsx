@@ -7,7 +7,7 @@ export const TodayIsHoliday: React.FC = () => {
     const [todayIsHoliday, setTodayIsHoliday] = useState<Holiday[]>([]);
     useEffect(() => {
         (async () => {
-            const {data, error} = await actions.TodayIsHoliday((new Date).toLocaleDateString("es-CL"));
+            const {data, error} = await actions.TodayIsHoliday((new Date()).toISOString());
             if (!error) setTodayIsHoliday(data);
         })();
     }, [])
