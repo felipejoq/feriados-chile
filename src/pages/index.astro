@@ -9,19 +9,23 @@ import {format, isAfter, isBefore} from "@formkit/tempo"
 import {actions} from "astro:actions";
 import Header from "../components/shared/Header.astro";
 
-const currentYear = Number(format(new Date(), "YYYY", "cl"));
+const currentYear = Number(format({
+    date: new Date(),
+    format: "YYYY",
+    tz: "America/Santiago"
+}));
 
 const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
 const {data:getDate} = await actions.GetDate({}) as { data: string };
 
 // Get next holidays from today
 const nextHolidays = data.filter((item: Holiday) => {
-    return item.jsDate !== undefined && isAfter(item.jsDate, new Date());
+    return item.date !== undefined && isAfter(item.date, new Date());
 });
 
 // Get last holidays from today
 const lastHolidays = data.filter((item: Holiday) => {
-    return item.jsDate !== undefined && isBefore(item.jsDate, new Date());
+    return item.date !== undefined && isBefore(item.date, new Date());
 });
 ---
 

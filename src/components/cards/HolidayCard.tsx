@@ -1,22 +1,31 @@
 import React from "react";
-import type {Holiday} from "@data/2024/holidays.ts";
+import {format} from "@formkit/tempo";
+import {type Holiday, HolidayType} from "@data/2024/holidays.ts";
 
 interface Props {
     holiday: Holiday;
 }
 
 export const HolidayCard: React.FC<Props> = ({holiday}) => {
+
+    const date = format(holiday.date!, "full", "es");
+    const capitalizeDate = date.charAt(0).toUpperCase() + date.slice(1);
+
+    const isDifferent = holiday.type === HolidayType.Special || holiday.type === HolidayType.Local;
+
     return (
-        <div className={`p-4 rounded-lg shadow-md ${holiday.reason ? 'bg-yellow-100' : 'bg-white'}`}>
-            <h3 className="text-lg font-semibold">{holiday.day}</h3>
-            {holiday.holiday && <p><strong>Feriado:</strong> {holiday.holiday}</p>}
-            {holiday.type && <p><strong>Tipo:</strong> {holiday.type}</p>}
-            {holiday.irrenunciable !== undefined && (
+        <div className={`p-4 rounded-lg shadow-md flex flex-col ${isDifferent ? 'bg-green-100' : 'bg-white'}`}>
+            <div className="flex-grow prose prose-neutral prose-p:text-black">
+                <h3 className="text-lg font-semibold">{capitalizeDate}</h3>
+                <p className="">{holiday.description}</p>
+            </div>
+            <hr className="bg-gray-300 h-[1px] my-4" />
+            <div className="flex-grow">
+                <p><strong>Tipo:</strong> {holiday.type}</p>
                 <p><strong>Irrenunciable:</strong> {holiday.irrenunciable ? "Sí" : "No"}</p>
-            )}
-            {holiday.reason && <p><strong>Motivo:</strong> {holiday.reason}</p>}
-            {holiday.beneficiaries && <p><strong>Beneficiarios:</strong> {holiday.beneficiaries}</p>}
-            <p><strong>Respaldo Legal:</strong> {holiday.legalSupport}</p>
+                {holiday.beneficiaries && <p><strong>Beneficiarios:</strong> {holiday.beneficiaries}</p>}
+                <p><strong>Respaldo Legal:</strong> {holiday.legalSupport}</p>
+            </div>
         </div>
     );
 };
