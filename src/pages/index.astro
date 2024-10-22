@@ -12,6 +12,7 @@ import Header from "../components/shared/Header.astro";
 const currentYear = Number(format(new Date(), "YYYY", "cl"));
 
 const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
+const {data:getDate} = await actions.GetDate({}) as { data: string };
 
 // Get next holidays from today
 const nextHolidays = data.filter((item: Holiday) => {
@@ -33,7 +34,10 @@ const lastHolidays = data.filter((item: Holiday) => {
     <div class="container mx-auto p-4">
 
         <div class="text-center min-h-9">
-            <Timer client:only="react"/>
+            <p>
+                <strong>Date from action:</strong> {getDate}
+            </p>
+            <Timer client:load/>
         </div>
 
         <!-- hoy es feriado? -->

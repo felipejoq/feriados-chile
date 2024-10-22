@@ -9,6 +9,21 @@ const isSundayInTimeZone = (): boolean => {
     return day === "Sunday";
 };
 
+const getDate = () => {
+    return format({
+        date: new Date(),
+        format: "dddd, DD MMMM YYYY HH:mm:ss",
+        tz: "America/Santiago",
+        locale: "es",
+    });
+};
+
+export const GetDate = defineAction({
+    accept: 'json',
+    input: z.any().optional(),
+    handler: getDate
+})
+
 export const TodayIsHoliday = defineAction({
     accept: 'json',
     input: z.string(),
