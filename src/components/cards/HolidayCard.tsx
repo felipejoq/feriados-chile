@@ -8,17 +8,20 @@ interface Props {
 
 export const HolidayCard: React.FC<Props> = ({holiday}) => {
 
-    if(holiday.date === undefined) {
-        holiday.date = new Date();
-    }
+    let date;
+    let capitalizeDate;
 
-    const date = format({
-        date: parse(holiday.date.toISOString(), "YYYY-MM-DD", "es-CL"),
-        format: "full",
-        locale: "es",
-        tz: "America/Santiago",
-    });
-    const capitalizeDate = date.charAt(0).toUpperCase() + date.slice(1);
+    if (holiday.date) {
+        date = format({
+            date: parse(holiday.date.toISOString(), "YYYY-MM-DD", "es-CL"),
+            format: "full",
+            locale: "es",
+            tz: "America/Santiago",
+        });
+        capitalizeDate = date.charAt(0).toUpperCase() + date.slice(1);
+    } else {
+        capitalizeDate = holiday.description;
+    }
 
     const isDifferent = holiday.type === HolidayType.Special || holiday.type === HolidayType.Local;
 
@@ -28,7 +31,7 @@ export const HolidayCard: React.FC<Props> = ({holiday}) => {
                 <h3 className="text-lg font-semibold">{capitalizeDate}</h3>
                 <p className="">{holiday.description}</p>
             </div>
-            <hr className="bg-gray-300 h-[1px] my-4" />
+            <hr className="bg-gray-300 h-[1px] my-4"/>
             <div className="flex-grow">
                 <p><strong>Tipo:</strong> {holiday.type}</p>
                 <p><strong>Irrenunciable:</strong> {holiday.irrenunciable ? "Sí" : "No"}</p>
