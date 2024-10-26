@@ -15,10 +15,10 @@ export const Timer: React.FC = () => {
     }, []);
 
     return (
-        <>
+        <div>
             <span>{date}</span>
             <span className="ml-3 text-center">-</span>
             <span className="w-20 text-center inline-block">{time}</span>
-        </>
+        </div>
     );
 };
