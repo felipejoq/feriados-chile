@@ -18,7 +18,9 @@ export const TodayIsHoliday: React.FC = () => {
                 <>
                     <p className="text-2xl font-semibold mb-2">🎉 Hoy es feriado</p>
                     {todayIsHoliday.map((holiday, index) => (
-                        <HolidayCard key={index} holiday={holiday}/>
+                        <div key={index} className="mb-2">
+                            <HolidayCard holiday={holiday}/>
+                        </div>
                     ))}
                 </>
             ) : (
