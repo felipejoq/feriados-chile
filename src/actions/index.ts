@@ -1,7 +1,8 @@
-import {TodayIsHoliday, GetAllHolidays, GetDate} from "@actions/holidays/holidays.actions.ts";
+import {TodayIsHoliday, GetAllHolidays, GetDate, SearchHolidays} from "@actions/holidays/holidays.actions.ts";
 
 export const server = {
     TodayIsHoliday,
     GetAllHolidays,
-    GetDate
+    GetDate,
+    SearchHolidays
 };

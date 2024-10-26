@@ -2,6 +2,7 @@
 import MainLayout from "@layouts/MainLayout.astro";
 import {TodayIsHoliday} from "@components/TodayIsHoliday";
 import {HolidayCard} from "@components/cards/HolidayCard";
+import {SearchHolidays} from "@components/SearchHolidays";
 import {Timer} from "@components/Timer";
 import type {Holiday} from "@data/2024/holidays";
 import {format, isAfter, isBefore} from "@formkit/tempo"
@@ -35,6 +36,9 @@ const lastHolidays = data.filter((item: Holiday) => {
             href="/"
     />
     <div class="container mx-auto p-4">
+
+        <SearchHolidays holidays={data} client:only="react"/>
+
 
         <div class="text-center min-h-9">
             <Timer client:load/>
