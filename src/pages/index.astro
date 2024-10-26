@@ -39,7 +39,13 @@ const lastHolidays = data.filter((item: Holiday) => {
         <div class="text-center min-h-9">
             {import.meta.env.TZ}
             {/* Server hours */}
-            { new Date().toLocaleTimeString() }
+            {
+                format({
+                    date: new Date(),
+                    format: "DD/MM/YYYY HH:mm:ss",
+                    tz: "America/Santiago"
+                })
+            }
             <Timer client:only="react"/>
         </div>
 
