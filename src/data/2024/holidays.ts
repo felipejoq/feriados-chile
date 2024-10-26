@@ -12,6 +12,7 @@ export type Holiday = {
     type: HolidayType;
     irrenunciable: boolean;
     beneficiaries?: string;
+    slug?: string;
     date: Date | undefined;
 };
 
@@ -162,6 +163,7 @@ export const holidays: Holiday[] = [
         irrenunciable: false,
         legalSupport: "Ley 2.977",
         date: new Date("2024-12-08"),
+        slug: "/feriado-domingo-08-diciembre-chile",
     },
     {
         description: "Navidad",

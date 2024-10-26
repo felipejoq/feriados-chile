@@ -1,6 +1,7 @@
 import React from "react";
 import {format, parse} from "@formkit/tempo";
 import {type Holiday, HolidayType} from "@data/2024/holidays.ts";
+import {GeneralButton} from "@components/shared/buttons/GeneralButton.tsx";
 
 interface Props {
     holiday: Holiday;
@@ -37,6 +38,15 @@ export const HolidayCard: React.FC<Props> = ({holiday}) => {
                 <p><strong>Irrenunciable:</strong> {holiday.irrenunciable ? "Sí" : "No"}</p>
                 {holiday.beneficiaries && <p><strong>Beneficiarios:</strong> {holiday.beneficiaries}</p>}
                 <p><strong>Respaldo Legal:</strong> {holiday.legalSupport}</p>
+                {
+                    holiday.slug &&
+                  <div className='my-3 w-full flex justify-end'>
+                    <GeneralButton
+                      href={holiday.slug}
+                      text='Ver más'
+                    />
+                  </div>
+                }
             </div>
         </div>
     );

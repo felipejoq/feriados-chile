@@ -1,0 +1,53 @@
+---
+import {getEntry} from "astro:content";
+import {Image} from "astro:assets";
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/shared/Header.astro";
+import {GeneralButton} from "../components/shared/buttons/GeneralButton";
+
+const {slug} = Astro.params;
+if (slug === undefined) {
+    throw new Error("Slug es requerido");
+}
+
+const article = await getEntry("articles", slug);
+
+if (article === undefined) {
+    return Astro.redirect("/404");
+}
+const {Content} = await article.render();
+---
+<MainLayout
+        title={article.data.title}
+        description={article.data.description}
+        socialImage={article.data.image}
+>
+    <Header
+            title="Feriados Chile"
+            href="/"
+    />
+    <hr class="my-8 border-0"/>
+    <main class="w-full flex flex-col items-center justify-center">
+        <article class="shadow mx-4 p-8 rounded bg-white">
+            <picture>
+                <img
+                        src={article.data.image}
+                        alt={article.data.title}
+                        class="w-full shadow h-auto object-cover max-h-80 rounded mb-5"
+                />
+            </picture>
+            <div class="prose prose-h1:text-2xl prose-h2:text-xl">
+                <h1 class="text-3xl font-semibold mb-4">
+                    {article.data.title}
+                </h1>
+                <Content/>
+                <div class='my-3 w-full flex justify-end'>
+                    <GeneralButton
+                            href={'/'}
+                            text='Volver atrás'
+                    />
+                </div>
+            </div>
+        </article>
+    </main>
+</MainLayout>
