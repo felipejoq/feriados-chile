@@ -2,12 +2,13 @@ import React, {useEffect, useState} from "react";
 import {actions} from "astro:actions";
 import {type Holiday} from "@data/2024/holidays.ts";
 import {HolidayCard} from "@components/cards/HolidayCard.tsx";
+import {getDate} from "@utils/date.ts";
 
 export const TodayIsHoliday: React.FC = () => {
     const [todayIsHoliday, setTodayIsHoliday] = useState<Holiday[]>([]);
     useEffect(() => {
         (async () => {
-            const {data, error} = await actions.TodayIsHoliday((new Date()).toISOString());
+            const {data, error} = await actions.TodayIsHoliday((new Date(getDate())).toISOString());
             if (!error) setTodayIsHoliday(data);
         })();
     }, [])

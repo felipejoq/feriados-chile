@@ -15,6 +15,7 @@ export const TodayIsHoliday = defineAction({
     handler: (today) => {
 
         const holidaysFound = holidays.filter(holiday => {
+            console.log(holiday.date);
             return holiday.date !== undefined
                 && isSameDay(holiday.date.toISOString(), today)
                 && holiday.description !== "Todos los días Domingos";

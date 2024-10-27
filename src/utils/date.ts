@@ -1,5 +1,10 @@
 import {format, isEqual, parse} from "@formkit/tempo"
 
+export const getDate = (date= new Date()) => {
+    return new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Santiago",
+    }).format(date);
+};
 
 export const longDate = () =>{
     const date = format({
@@ -36,7 +41,7 @@ export const isSameDay = (dateISOString1: string, dateISOString2: string) => {
 }
 
 export const isSundayInTimeZone = (): boolean => {
-    const date = new Date().toISOString();
+    const date = new Date(getDate()).toISOString();
     const day = format({
         date: parse(date, "YYYY-MM-DD", "es-CL"),
         format: "dddd",
@@ -46,11 +51,3 @@ export const isSundayInTimeZone = (): boolean => {
     return day === "domingo";
 };
 
-export const getDate = () => {
-    return format({
-        date: new Date(),
-        format: "dddd, DD MMMM YYYY HH:mm:ss",
-        tz: "America/Santiago",
-        locale: "es",
-    });
-};
