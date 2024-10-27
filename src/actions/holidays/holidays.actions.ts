@@ -28,8 +28,8 @@ export const TodayIsHoliday = defineAction({
         }
 
         return [
-            ...result,
             ...holidaysFound,
+            ...result,
         ];
     }
 });

@@ -8,7 +8,7 @@ import type {Holiday} from "@data/2024/holidays";
 import {format, isAfter, isBefore} from "@formkit/tempo"
 
 import {actions} from "astro:actions";
-import Header from "../components/shared/Header.astro";
+import Header from "@components/shared/Header.astro";
 
 const currentYear = Number(format({
     date: new Date(),
