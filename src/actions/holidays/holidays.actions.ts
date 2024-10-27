@@ -12,7 +12,7 @@ export const GetDate = defineAction({
 export const TodayIsHoliday = defineAction({
     accept: 'json',
     input: z.string(),
-    handler: (today) => {
+    handler: async (today) => {
 
         const holidaysFound = holidays.filter(holiday => {
             console.log(holiday.date);
