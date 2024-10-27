@@ -6,7 +6,7 @@ date: "2024-10-26"
 author: "Felipe Jofré Quevedo"
 image: "/assets/images/porque-es-feriado-el-08-de-diciembre-en-chile.jpg"
 alt_text: "Imagen de la Virgen María representando el feriado de la Inmaculada Concepción el 8 de diciembre en Chile"
-slug: feriado-domingo-08-diciembre-chile
+slug: "feriado-domingo-08-diciembre-chile"
 ---
 
 El 8 de diciembre es un día especial en Chile, marcado por la celebración de la **Inmaculada Concepción**. Este feriado religioso, establecido desde hace más de un siglo, tiene un profundo significado en la cultura y la tradición cristiana del país. En este artículo, exploraremos el origen de este feriado, su significado y su relevancia en la vida de los chilenos.

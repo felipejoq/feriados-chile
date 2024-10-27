@@ -114,6 +114,7 @@ export const holidays: Holiday[] = [
         irrenunciable: false,
         legalSupport: "Ley 20.215",
         date: new Date("2024-09-20"),
+        slug: "/por-que-es-feriado-el-20-de-septiembre-en-chile"
     },
     {
         description: "Encuentro de Dos Mundos",
@@ -121,6 +122,7 @@ export const holidays: Holiday[] = [
         irrenunciable: false,
         legalSupport: "Ley 3.810, Ley 19.668",
         date: new Date("2024-10-12"),
+        slug: "/por-que-es-feriado-el-12-de-octubre-en-chile"
     },
     {
         description: "Elecciones Municipales, Consejeros Regionales y Gobernadores Regionales",
@@ -135,6 +137,7 @@ export const holidays: Holiday[] = [
         legalSupport: "Ley 18.700, Ley 19.973",
         irrenunciable: true,
         date: new Date("2024-10-27"),
+        slug: "/feriado-27-de-octubre-en-chile-elecciones"
     },
     {
         description: "Día de las Iglesias Evangélicas y Protestantes",
@@ -142,6 +145,7 @@ export const holidays: Holiday[] = [
         irrenunciable: false,
         legalSupport: "Ley 20.299",
         date: new Date("2024-10-31"),
+        slug: "/por-que-es-feriado-el-31-octubre-en-chile"
     },
     {
         description: "Día de Todos los Santos",
@@ -149,6 +153,7 @@ export const holidays: Holiday[] = [
         irrenunciable: false,
         legalSupport: "Ley 2.977",
         date: new Date("2024-11-01"),
+        slug: "/feriado-el-01-de-noviembre-en-chile"
     },
     {
         description: "Segunda Vuelta Elección Gobernadores Regionales",
@@ -156,6 +161,7 @@ export const holidays: Holiday[] = [
         legalSupport: "Ley 18.700, Ley 19.973",
         irrenunciable: true,
         date: new Date("2024-11-24"),
+        slug: "/feriado-el-27-de-noviembre-chile",
     },
     {
         description: "Inmaculada Concepción",
