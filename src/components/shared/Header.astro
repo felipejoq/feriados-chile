@@ -3,17 +3,29 @@ interface Props {
     title: string;
     currentYear?: number;
     href?: string;
+    isHeading?: boolean;
 }
 
 const {
     title,
     currentYear,
-    href = "/"
+    href = "/",
+    isHeading = true
 } = Astro.props;
 ---
 
 <header class="pt-10">
-    <h1 class="text-4xl font-bold text-center">
-        <a href={href}>{title} {currentYear ?? ''}</a>
-    </h1>
+    {
+        isHeading
+            ? <h1 class="text-4xl font-bold text-center">
+                    <a href={href}>
+                        {title} {currentYear ?? ''}
+                    </a>
+                </h1>
+            : <h2 class="text-4xl font-bold text-center">
+                    <a href={href}>
+                        {title} {currentYear ?? ''}
+                    </a>
+                </h2>
+    }
 </header>

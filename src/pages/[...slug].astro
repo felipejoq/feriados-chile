@@ -1,6 +1,5 @@
 ---
 import {getEntry} from "astro:content";
-import {Image} from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/shared/Header.astro";
 import {GeneralButton} from "../components/shared/buttons/GeneralButton";
@@ -25,6 +24,7 @@ const {Content} = await article.render();
     <Header
             title="Feriados Chile"
             href="/"
+            isHeading={false}
     />
     <hr class="my-8 border-0"/>
     <main class="w-full flex flex-col items-center justify-center">
