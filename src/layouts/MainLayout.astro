@@ -1,5 +1,6 @@
 ---
 import SocialCover from '@media/social-cover.jpg';
+import {SubscribeButton} from "@components/shared/subscribe/SuscribeButton";
 
 interface Props {
     title?: string;
@@ -40,6 +41,7 @@ const {
 </head>
 <body class="bg-gray-100 text-gray-900">
     <slot/>
+    <SubscribeButton client:only="react"/>
 <footer class="text-center text-sm text-gray-600 my-[50px]">
     <p >
         Feriados de Chile {year} - Feriados.app
