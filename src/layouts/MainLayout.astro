@@ -1,5 +1,5 @@
 ---
-import SocialCover from '@media/social-cover.jpg';
+import {SITE_AUTHOR, SITE_DESCRIPTION, SITE_IMAGE, SITE_NAME} from "../utils/config.global";
 
 interface Props {
     title?: string;
@@ -10,9 +10,9 @@ interface Props {
 const year = new Date().getFullYear();
 
 const {
-    title = `Feriados Chilenos - ${year}`,
-    description = `Lista completa de los feriados en Chile para el año ${year}`,
-    socialImage= SocialCover.src
+    title = `✔ Feriados Chilenos - ${year} ${SITE_NAME}`,
+    description = SITE_DESCRIPTION,
+    socialImage= SITE_IMAGE.src
 } = Astro.props;
 ---
 
@@ -31,7 +31,7 @@ const {
 
     <!-- SEO -->
     <meta name="description" content={description}/>
-    <meta name="author" content="Feriados.app"/>
+    <meta name="author" content={SITE_AUTHOR}/>
 
     <!-- canonical -->
     <link rel="canonical" href={Astro.url}/>
