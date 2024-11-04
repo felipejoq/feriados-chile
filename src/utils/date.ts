@@ -1,4 +1,5 @@
-import {format, isEqual, parse} from "@formkit/tempo"
+import {format, isBefore, isEqual, parse} from "@formkit/tempo"
+import type {Holiday} from "@data/2024/holidays.ts";
 
 export const getDate = (date= new Date()) => {
     return new Intl.DateTimeFormat("en-US", {
@@ -50,4 +51,12 @@ export const isSundayInTimeZone = (): boolean => {
     });
     return day === "domingo";
 };
+
+export const sortHolidays = (a: Holiday, b: Holiday) => {
+    if (a.date === undefined || b.date === undefined) return 0;
+    if (isBefore(a.date, b.date)) return -1;
+    if (isBefore(b.date, a.date)) return 1;
+
+    return 0;
+}
 

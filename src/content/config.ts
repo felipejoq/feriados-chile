@@ -23,10 +23,13 @@ const holidayCollection = defineCollection({
         irrenunciable: z.boolean(),
         beneficiaries: z.string().optional(),
         slug: z.string().optional(),
-        date: z.date().optional(),
+        date: z.string()
+            .transform((dateStr) => new Date(dateStr))
+            .optional(),
     }),
 });
 
 export const collections = {
     'articles': articleCollection,
+    'holidays': holidayCollection,
 };

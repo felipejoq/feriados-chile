@@ -6,9 +6,10 @@ import {HolidayCard} from "@components/cards/HolidayCard";
 import {Timer} from "@components/Timer";
 import type {Holiday} from "@data/2024/holidays";
 import {format, isAfter, isBefore} from "@formkit/tempo"
+import {sortHolidays} from "@utils/date";
 
-import {actions} from "astro:actions";
 import Header from "@components/shared/Header.astro";
+import {getCollection} from "astro:content";
 
 const currentYear = Number(format({
     date: new Date(),
@@ -16,17 +17,19 @@ const currentYear = Number(format({
     tz: "America/Santiago"
 }));
 
-const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
+const holidaysCollection = await getCollection("holidays") as { data: Holiday }[];
 
-// Get next holidays from today
-const nextHolidays = data.filter((item: Holiday) => {
-    return item.date !== undefined && isAfter(item.date, new Date());
-});
+const nextHolidays = holidaysCollection.filter(({data}) => {
+    if (data.date !== undefined && isAfter(data.date, new Date())) {
+        return data;
+    }
+}).map(({data}) => data).sort(sortHolidays);
 
 // Get last holidays from today
-const lastHolidays = data.filter((item: Holiday) => {
-    return item.date !== undefined && isBefore(item.date, new Date());
-});
+const lastHolidays = holidaysCollection.filter(({data}) => {
+    return data.date !== undefined && isBefore(data.date, new Date());
+}).map(({data}) => data).sort(sortHolidays);
+
 ---
 
 <MainLayout>
