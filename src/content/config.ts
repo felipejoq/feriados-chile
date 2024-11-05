@@ -14,7 +14,7 @@ const articleCollection = defineCollection({
     }),
 });
 
-const holidayCollection = defineCollection({
+const holidaysCollection = defineCollection({
     type: 'data',
     schema: z.object({
         legalSupport: z.string(),
@@ -23,13 +23,16 @@ const holidayCollection = defineCollection({
         irrenunciable: z.boolean(),
         beneficiaries: z.string().optional(),
         slug: z.string().optional(),
-        date: z.string()
-            .transform((dateStr) => new Date(dateStr))
+        date: z.string().or(z.null())
+            .transform((dateStr) => {
+                if(dateStr === null) return null;
+                return new Date(dateStr);
+            })
             .optional(),
     }),
 });
 
 export const collections = {
     'articles': articleCollection,
-    'holidays': holidayCollection,
+    'holidays_2024': holidaysCollection,
 };

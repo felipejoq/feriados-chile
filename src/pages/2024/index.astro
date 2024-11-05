@@ -1,16 +1,13 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import {HolidayCard} from "@components/cards/HolidayCard";
-import {Timer} from "@components/Timer";
 import type {Holiday} from "@data/2024/holidays";
 import {format} from "@formkit/tempo"
 
-import {actions} from "astro:actions";
 import Header from "../../components/shared/Header.astro";
-import LongDate from "../../components/LongDate.astro";
+import {getCollection} from "astro:content";
 
-const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
-
+const holidays2024Collection = await getCollection("holidays_2024") as { data: Holiday }[];
 ---
 
 <MainLayout
@@ -28,8 +25,8 @@ const {data} = await actions.GetAllHolidays({}) as { data: Holiday[] };
             <h2 class="text-2xl font-semibold mb-4">Feriados {format(new Date(), "YYYY", "cl")}</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
-                    data.map((item: Holiday) => (
-                            <HolidayCard holiday={item}/>
+                    holidays2024Collection.map(({data}) => (
+                            <HolidayCard holiday={data}/>
                     ))
                 }
             </div>

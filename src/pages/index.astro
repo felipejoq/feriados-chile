@@ -17,7 +17,7 @@ const currentYear = Number(format({
     tz: "America/Santiago"
 }));
 
-const holidaysCollection = await getCollection("holidays") as { data: Holiday }[];
+const holidaysCollection = await getCollection("holidays_2024") as { data: Holiday }[];
 
 const nextHolidays = holidaysCollection.filter(({data}) => {
     if (data.date !== undefined && isAfter(data.date, new Date())) {
@@ -25,7 +25,7 @@ const nextHolidays = holidaysCollection.filter(({data}) => {
     }
 }).map(({data}) => data).sort(sortHolidays);
 
-// Get last holidays from today
+// Get last holidays_2024 from today
 const lastHolidays = holidaysCollection.filter(({data}) => {
     return data.date !== undefined && isBefore(data.date, new Date());
 }).map(({data}) => data).sort(sortHolidays);
