@@ -1,13 +1,7 @@
 import {defineAction} from "astro:actions";
 import {z} from "astro:schema";
 import {holidays} from "@data/2024/holidays.ts";
-import {getDate, isSameDay, isSundayInTimeZone} from "@utils/date.ts";
-
-export const GetDate = defineAction({
-    accept: 'json',
-    input: z.any().optional(),
-    handler: getDate
-})
+import {isSameDay, isSundayInTimeZone} from "@utils/date.ts";
 
 export const TodayIsHoliday = defineAction({
     accept: 'json',
