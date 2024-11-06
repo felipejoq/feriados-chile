@@ -1,20 +1,29 @@
 ---
-import {getEntry} from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/shared/Header.astro";
 import {GeneralButton} from "../components/shared/buttons/GeneralButton";
+import type {GetStaticPaths} from "astro";
+import {getCollection} from "astro:content";
 
-const {slug} = Astro.params;
-if (slug === undefined) {
-    throw new Error("Slug es requerido");
-}
+export const getStaticPaths = (async () => {
+	const articles = await getCollection("articles");
 
-const article = await getEntry("articles", slug);
+	return articles.map(articleItem => {
+        return {
+            params: {
+                slug: articleItem.slug
+            },
+            props: {
+                article: articleItem
+            }
+        }
+    });
+}) satisfies GetStaticPaths;
 
-if (article === undefined) {
-    return Astro.redirect("/404");
-}
+const { article } = Astro.props;
+
 const {Content} = await article.render();
+
 ---
 <MainLayout
         title={article.data.title}

@@ -15,6 +15,6 @@ export default defineConfig({
     enabled: false,
   },
   integrations: [tailwind(), react(), mdx()],
-  output: 'server',
+  output: 'hybrid',
   adapter: netlify()
 });
