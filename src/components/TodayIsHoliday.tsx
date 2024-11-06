@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {actions} from "astro:actions";
-import {type Holiday} from "../types/holidays.ts";
 import {HolidayCard} from "@components/cards/HolidayCard.tsx";
 import {getDate} from "@utils/date.ts";
+import {type Holiday} from "@utils/def/holidays.ts";
 
 export const TodayIsHoliday: React.FC = () => {
     const [todayIsHoliday, setTodayIsHoliday] = useState<Holiday[]>([]);

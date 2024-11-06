@@ -1,5 +1,5 @@
 import { z, defineCollection } from 'astro:content';
-import {HolidayType } from '../types/holidays.ts';
+import {HolidayType } from '@utils/def/holidays.ts';
 
 const articleCollection = defineCollection({
     type: 'content',

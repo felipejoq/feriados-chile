@@ -1,6 +1,6 @@
 import React from "react";
 import {format, parse} from "@formkit/tempo";
-import {type Holiday, HolidayType} from "../../types/holidays.ts";
+import {type Holiday, HolidayType} from "@utils/def/holidays.ts";
 import {GeneralButton} from "@components/shared/buttons/GeneralButton.tsx";
 
 interface Props {

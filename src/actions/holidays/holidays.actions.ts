@@ -1,9 +1,9 @@
-import {defineAction} from "astro:actions";
 import {z} from "astro:schema";
-import {isSameDay, isSundayInTimeZone} from "@utils/date.ts";
+import {defineAction} from "astro:actions";
 import {getCollection} from "astro:content";
 import {getEntry} from "astro:content";
-import type {Holiday} from "../../types/holidays.ts";
+import {isSameDay, isSundayInTimeZone} from "@utils/date.ts";
+import type {Holiday} from "@utils/def/holidays.ts";
 
 export const TodayIsHoliday = defineAction({
     accept: 'json',
@@ -29,7 +29,7 @@ export const TodayIsHoliday = defineAction({
         return [
             ...holidaysFound,
             ...result,
-        ];
+        ] as Holiday[];
     }
 });
 

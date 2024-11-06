@@ -1,5 +1,5 @@
 import {format, isBefore, isEqual, parse} from "@formkit/tempo"
-import type {Holiday} from "../types/holidays.ts";
+import type {Holiday} from "@utils/def/holidays.ts";
 
 export const getDate = (date = new Date()) => {
     return new Intl.DateTimeFormat("en-US", {

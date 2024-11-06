@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import type {Holiday} from "../types/holidays.ts";
+import type {Holiday} from "@utils/def/holidays.ts";
 import {actions} from "astro:actions";
 
 interface Props {
