@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {actions} from "astro:actions";
-import {type Holiday} from "@data/2024/holidays.ts";
+import {type Holiday} from "../types/holidays.ts";
 import {HolidayCard} from "@components/cards/HolidayCard.tsx";
 import {getDate} from "@utils/date.ts";
 
