@@ -1,13 +1,13 @@
 import {format, isBefore, isEqual, parse} from "@formkit/tempo"
-import type {Holiday} from "@data/2024/holidays.ts";
+import type {Holiday} from "@utils/def/holidays.ts";
 
-export const getDate = (date= new Date()) => {
+export const getDate = (date = new Date()) => {
     return new Intl.DateTimeFormat("en-US", {
         timeZone: "America/Santiago",
     }).format(date);
 };
 
-export const longDate = () =>{
+export const longDate = () => {
     const date = format({
         date: new Date(),
         format: "dddd, DD MMMM YYYY",

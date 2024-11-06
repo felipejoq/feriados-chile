@@ -1,48 +1,48 @@
-import {defineAction} from "astro:actions";
 import {z} from "astro:schema";
-import {holidays} from "@data/2024/holidays.ts";
+import {defineAction} from "astro:actions";
+import {getCollection} from "astro:content";
+import {getEntry} from "astro:content";
 import {isSameDay, isSundayInTimeZone} from "@utils/date.ts";
+import type {Holiday} from "@utils/def/holidays.ts";
 
 export const TodayIsHoliday = defineAction({
     accept: 'json',
     input: z.string(),
     handler: async (today) => {
 
-        const holidaysFound = holidays.filter(holiday => {
-            return holiday.date !== undefined
-                && isSameDay(holiday.date.toISOString(), today)
-                && holiday.description !== "Todos los días Domingos";
+        const holidaysCollection = await getCollection('holidays_2024');
+
+        const holidaysFound = holidaysCollection.filter(({data}) => {
+            return data.date !== null && data.date !== undefined
+                && isSameDay(data.date.toISOString(), today)
+                && data.description !== "Todos los días Domingos";
         });
 
         const result = [];
 
         // Check if today is Sunday in Chile Continental
         if (isSundayInTimeZone()) {
-            result.push(holidays[0]);
+            const sundayHoliday = await getEntry("holidays_2024", "todos-los-domingos");
+            result.push(sundayHoliday.data);
         }
 
         return [
             ...holidaysFound,
             ...result,
-        ];
-    }
-});
-
-export const GetAllHolidays = defineAction({
-    accept: 'json',
-    input: z.any().optional(),
-    handler: () => {
-        return holidays;
+        ] as Holiday[];
     }
 });
 
 export const SearchHolidays = defineAction({
     accept: 'json',
     input: z.string(),
-    handler: (search) => {
-        return holidays.filter(holiday => {
-            const holidayToString = JSON.stringify(holiday);
-            return holidayToString.toLowerCase().includes(search.toLowerCase());
-        });
+    handler: async (search) => {
+        const holidaysCollection = await getCollection('holidays_2024');
+        return holidaysCollection.filter(({data}) => {
+            const holidayToString = JSON.stringify(data);
+            if(holidayToString.toLowerCase().includes(search.toLowerCase())) {
+                return data;
+            }
+        }).map(({data}) => data) as Holiday[];
     }
 });
