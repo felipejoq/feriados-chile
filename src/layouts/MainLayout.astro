@@ -37,6 +37,16 @@ const {
     <link rel="canonical" href={Astro.url}/>
 
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-3L1KYPN7S6"></script>
+    <script type="text/partytown">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-3L1KYPN7S6');
+    </script>
 </head>
 <body class="bg-gray-100 text-gray-900">
     <slot/>
