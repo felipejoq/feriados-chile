@@ -1,8 +1,8 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import {TodayIsHoliday} from "@components/TodayIsHoliday";
+import TodayIsHoliday from "@components/TodayIsHoliday.astro";
 import LongDate from "@components/LongDate.astro";
-import {HolidayCard} from "@components/cards/HolidayCard";
+import HolidayCard from "@components/cards/HolidayCard.astro";
 import {Timer} from "@components/Timer";
 import type {Holiday} from "../utils/def/holidays";
 import {format, isAfter, isBefore} from "@formkit/tempo"
@@ -50,7 +50,14 @@ const lastHolidays = holidaysCollection.filter(({data}) => {
 
         <!-- hoy es feriado? -->
         <div class="min-h-[190px]">
-            <TodayIsHoliday client:load/>
+            <section class="my-6">
+                <h2 class="text-2xl font-semibold mb-4">🤔 ¿Hoy es feriado?</h2>
+                <TodayIsHoliday server:defer>
+                    <p class="mb-2" slot="fallback">
+                        🤞 Buscando en el calendario...
+                    </p>
+                </TodayIsHoliday>
+            </section>
         </div>
 
         <!-- Feriados Generales -->

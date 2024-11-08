@@ -1,0 +1,33 @@
+---
+import {actions} from "astro:actions";
+import {getDate} from "@utils/date.ts";
+import HolidayCard from "@components/cards/HolidayCard.astro";
+
+const {
+    data,
+    error
+} = await Astro.callAction(actions.TodayIsHoliday, (new Date(getDate())).toISOString());
+
+if (error) {
+    console.log(error)
+    throw new Error(error.message)
+}
+
+const {isHoliday, message, holidays} = data;
+---
+{
+    isHoliday ? (
+    <>
+        <p class="font-semibold mb-2">{message}</p>
+        {
+            holidays.map(holiday => (
+                <HolidayCard holiday={holiday}/>
+            ))
+        }
+    </>
+        ) : (
+            <p class="bg-white p-4 rounded-lg shadow-md my-6 text-lg font-semibold">
+                {message}
+            </p>
+        )
+}
