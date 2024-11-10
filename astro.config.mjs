@@ -4,7 +4,8 @@ import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
-import cloudflare from '@astrojs/cloudflare';
+
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,5 +26,5 @@ export default defineConfig({
     }),
   ],
   output: 'hybrid',
-  adapter: cloudflare()
+  adapter: netlify()
 });
