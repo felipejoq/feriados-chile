@@ -11,6 +11,8 @@ import {sortHolidays} from "@utils/date";
 import Header from "@components/shared/Header.astro";
 import {getCollection} from "astro:content";
 
+export const prerender = false;
+
 const currentYear = Number(format({
     date: new Date(),
     format: "YYYY",
