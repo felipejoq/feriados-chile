@@ -1,8 +1,16 @@
 ---
-import {longDate} from "@utils/date";
+import {actions} from "astro:actions";
 
-export const prerender = false
+export const prerender = false;
 
+const {data, error} = await Astro.callAction(actions.GetLongDate, {});
+
+if (error) {
+    console.log(error)
+    throw new Error(error.message)
+}
+
+const {longDate} = data;
 ---
 
-<span>{longDate()}</span>
+<span>{longDate}</span>
