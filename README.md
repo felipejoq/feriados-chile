@@ -13,11 +13,11 @@ tipo de feriado al que corresponde.
 - [x] Mostrar feriados por año.
 - [x] Incluir artículos informativos sobre los feriados.
 - [x] Mostrar feriados destacados cuando son distintos o especiales.
-- [] Incluir un buscador de feriados.
-- [] Incluir un filtro de feriados por tipo.
-- [] Agregar registro para recibir alertas de feriados por email.
-- [] Agregar un calendario para elegir entre dos tipos de vistas (mensual y anual).
-- [] ...
+- [ ] Incluir un buscador de feriados.
+- [ ] Incluir un filtro de feriados por tipo.
+- [ ] Agregar registro para recibir alertas de feriados por email.
+- [ ] Agregar un calendario para elegir entre dos tipos de vistas (mensual y anual).
+- [ ] ...
 
 ## 👨‍💻 Tecnologías
 
