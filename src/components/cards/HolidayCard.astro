@@ -28,7 +28,7 @@ const isDifferent = holiday.type === HolidayType.Special || holiday.type === Hol
 
 ---
 
-<div class={`p-4 rounded-lg shadow-md flex flex-col ${isDifferent ? 'bg-green-100' : 'bg-white'}`}>
+<div class={`p-4 rounded-lg shadow-md flex flex-col mb-4 ${isDifferent ? 'bg-green-100' : 'bg-white'}`}>
     <div class="flex-grow prose prose-neutral prose-p:text-black">
         <h3 class="text-lg font-semibold">{capitalizeDate}</h3>
         <p class="">{holiday.description}</p>
