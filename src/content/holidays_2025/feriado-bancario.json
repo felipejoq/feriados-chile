@@ -1,0 +1,8 @@
+{
+  "description": "Feriado Bancario",
+  "type": "Especial",
+  "irrenunciable": false,
+  "beneficiaries": "Trabajadores de Instituciones Bancarias",
+  "legalSupport": "Ley General de Bancos",
+  "date": "2025-12-31"
+}

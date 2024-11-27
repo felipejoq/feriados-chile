@@ -35,4 +35,5 @@ const holidaysCollection = defineCollection({
 export const collections = {
     'articles': articleCollection,
     'holidays_2024': holidaysCollection,
+    'holidays_2025': holidaysCollection,
 };

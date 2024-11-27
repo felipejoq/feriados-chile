@@ -1,9 +1,7 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import TodayIsHoliday from "@components/TodayIsHoliday.astro";
-import LongDate from "@components/LongDate.astro";
 import HolidayCard from "@components/cards/HolidayCard.astro";
-import {Timer} from "@components/Timer";
 import type {Holiday} from "../utils/def/holidays";
 import {format, isAfter, isBefore} from "@formkit/tempo"
 import {sortHolidays} from "@utils/date";
@@ -82,10 +80,16 @@ const lastHolidays = holidaysCollection.filter(({data}) => {
             <h2 class="text-2xl font-semibold mb-4">
                 🗓️ Feriados por año
             </h2>
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap gap-3">
                 <a href="/2024">
                     <div class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-500 hover:font-bold overflow-hidden">
                         Feriados 2024
+                    </div>
+                </a>
+
+                <a href="/2025">
+                    <div class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-500 hover:font-bold overflow-hidden">
+                        Feriados 2025
                     </div>
                 </a>
             </div>
