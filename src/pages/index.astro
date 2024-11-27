@@ -8,6 +8,7 @@ import {sortHolidays} from "@utils/date";
 
 import Header from "@components/shared/Header.astro";
 import {getCollection} from "astro:content";
+import HolidaysByYear from "../components/shared/HolidaysByYear.astro";
 
 const currentYear = Number(format({
     date: new Date(),
@@ -76,23 +77,6 @@ const lastHolidays = holidaysCollection.filter(({data}) => {
             </div>
         </section>
 
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold mb-4">
-                🗓️ Feriados por año
-            </h2>
-            <div class="flex flex-wrap gap-3">
-                <a href="/2024">
-                    <div class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-500 hover:font-bold overflow-hidden">
-                        Feriados 2024
-                    </div>
-                </a>
-
-                <a href="/2025">
-                    <div class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-500 hover:font-bold overflow-hidden">
-                        Feriados 2025
-                    </div>
-                </a>
-            </div>
-        </section>
+        <HolidaysByYear/>
     </div>
 </MainLayout>

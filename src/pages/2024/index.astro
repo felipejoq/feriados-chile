@@ -1,13 +1,20 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import HolidayCard from "@components/cards/HolidayCard.astro";
-import type {Holiday} from "../../utils/def/holidays";
+import type {Holiday} from "@utils/def/holidays";
 import {format} from "@formkit/tempo"
+import {sortHolidays} from "@utils/date";
 
 import Header from "../../components/shared/Header.astro";
 import {getCollection} from "astro:content";
+import HolidaysByYear from "../../components/shared/HolidaysByYear.astro";
 
 const holidays2024Collection = await getCollection("holidays_2024") as { data: Holiday }[];
+
+// sort holidays by date
+const sortedHolidays2025 = holidays2024Collection
+    .filter(({ data }) => data.date !== undefined)
+    .sort((a, b) => sortHolidays(a.data, b.data));
 ---
 
 <MainLayout
@@ -22,14 +29,15 @@ const holidays2024Collection = await getCollection("holidays_2024") as { data: H
     <div class="container mx-auto p-4">
         <!-- Feriados Generales -->
         <section class="my-8">
-            <h2 class="text-2xl font-semibold mb-4">Feriados {format(new Date(), "YYYY", "cl")}</h2>
+            <h2 class="text-2xl font-semibold mb-4">Feriados 2024</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
-                    holidays2024Collection.map(({data}) => (
+                    sortedHolidays2025.map(({data}) => (
                             <HolidayCard holiday={data}/>
                     ))
                 }
             </div>
         </section>
+        <HolidaysByYear />
     </div>
 </MainLayout>

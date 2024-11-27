@@ -7,6 +7,7 @@ import {format} from "@formkit/tempo"
 import Header from "../../components/shared/Header.astro";
 import {getCollection} from "astro:content";
 import {sortHolidays} from "../../utils/date";
+import HolidaysByYear from "../../components/shared/HolidaysByYear.astro";
 
 const holidays2025Collection = await getCollection("holidays_2025") as { data: Holiday }[];
 
@@ -28,7 +29,7 @@ const sortedHolidays2025 = holidays2025Collection
     <div class="container mx-auto p-4">
         <!-- Feriados Generales -->
         <section class="my-8">
-            <h2 class="text-2xl font-semibold mb-4">Feriados {format(new Date(), "YYYY", "cl")}</h2>
+            <h2 class="text-2xl font-semibold mb-4">Feriados 2025</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     sortedHolidays2025.map(({data}) => (
@@ -37,5 +38,6 @@ const sortedHolidays2025 = holidays2025Collection
                 }
             </div>
         </section>
+        <HolidaysByYear />
     </div>
 </MainLayout>
