@@ -57,9 +57,9 @@ const lastHolidays = holidaysCollection.filter(({data}) => {
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
-                    nextHolidays.map((item: Holiday) => (
+                    nextHolidays ? nextHolidays.map((item: Holiday) => (
                             <HolidayCard holiday={item}/>
-                    ))
+                    )) : "No hay feriados próximos"
                 }
             </div>
         </section>
@@ -70,9 +70,9 @@ const lastHolidays = holidaysCollection.filter(({data}) => {
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
-                    lastHolidays.map((item: Holiday) => (
+                    lastHolidays ? lastHolidays.map((item: Holiday) => (
                             <HolidayCard holiday={item}/>
-                    ))
+                    )) : "No hay feriados pasados"
                 }
             </div>
         </section>
