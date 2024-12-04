@@ -24,6 +24,9 @@
       "@media/*": [
         "src/media/*"
       ],
+      "@lib/*": [
+        "src/lib/*"
+      ]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
