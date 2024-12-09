@@ -1,6 +1,6 @@
 ---
-title: "Feriado del 20 de Junio: Día Nacional de los Pueblos Indígenas"
-description: "Conoce la importancia y significado del Día Nacional de los Pueblos Indígenas en Chile, celebrado el 20 de junio."
+title: "✨ Feriado del 20 de Junio: Día Nacional de los Pueblos Indígenas"
+description: "✅ Conoce la importancia y significado del Día Nacional de los Pueblos Indígenas en Chile, celebrado el 20 de junio."
 keywords: ["feriado 20 junio Chile", "Día Nacional de los Pueblos Indígenas", "solsticio de invierno", "cultura indígena"]
 date: "2024-10-26"
 author: "Felipe Jofré Quevedo"

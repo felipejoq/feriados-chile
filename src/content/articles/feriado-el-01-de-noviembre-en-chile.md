@@ -1,6 +1,6 @@
 ---
-title: "Por qué es feriado el primero de noviembre en Chile"  
-description: "Explora el significado y origen del feriado del 1 de noviembre en Chile, conocido como el Día de Todos los Santos, y su impacto cultural y social en la vida de los chilenos."  
+title: "😌 Por qué es feriado el primero de noviembre en Chile"
+description: "✨ Explora el significado y origen del feriado del 1 de noviembre en Chile, conocido como el Día de Todos los Santos, y su impacto cultural y social en la vida de los chilenos."  
 keywords: ["feriado 1 noviembre Chile", "Día de Todos los Santos Chile", "feriados religiosos en Chile", "por qué es feriado 1 noviembre"]  
 date: "2024-10-26"  
 author: "Felipe Jofré Quevedo"  

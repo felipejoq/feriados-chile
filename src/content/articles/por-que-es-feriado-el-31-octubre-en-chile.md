@@ -1,6 +1,6 @@
 ---
-title: "Por qué es feriado el 31 de octubre en Chile"
-description: "Conoce la historia y relevancia del feriado del 31 de octubre en Chile, Día de las Iglesias Evangélicas y Protestantes, y cómo esta fecha celebra la diversidad religiosa y el impacto de estas comunidades en el país."
+title: "⛪️ Por qué es feriado el 31 de octubre en Chile"
+description: "🔔 Conoce la historia y relevancia del feriado del 31 de octubre en Chile, Día de las Iglesias Evangélicas y Protestantes, y cómo esta fecha celebra la diversidad religiosa y el impacto de estas comunidades en el país."
 keywords: ["feriado 31 octubre Chile", "Día Iglesias Evangélicas y Protestantes Chile", "feriado religioso Chile", "por qué es feriado 31 octubre"]
 date: "2024-10-26"
 author: "Felipe Jofré Quevedo"

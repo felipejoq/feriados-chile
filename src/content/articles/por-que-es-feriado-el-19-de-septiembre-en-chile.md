@@ -1,6 +1,6 @@
 ---
-title: "Feriado del 19 de Septiembre: Día de las Glorias del Ejército"
-description: "Conoce la importancia del 19 de septiembre en Chile, el Día de las Glorias del Ejército, y cómo esta celebración honra a las Fuerzas Armadas y promueve el patriotismo en la nación."
+title: "🗡️ Feriado del 19 de Septiembre: Día de las Glorias del Ejército"
+description: "✅ Conoce la importancia del 19 de septiembre en Chile, el Día de las Glorias del Ejército, y cómo esta celebración honra a las Fuerzas Armadas y promueve el patriotismo en la nación."
 keywords: ["Día de las Glorias del Ejército", "feriado 19 septiembre Chile", "celebraciones patrióticas", "importancia Fuerzas Armadas"]
 date: "2024-10-26"
 author: "Felipe Jofré Quevedo"

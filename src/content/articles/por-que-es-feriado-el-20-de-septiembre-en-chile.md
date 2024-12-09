@@ -1,6 +1,6 @@
 ---
-title: "¿Por qué es Feriado el 20 de Septiembre en Chile?"
-description: "Explora el motivo detrás del feriado del 20 de septiembre en Chile y su importancia para prolongar las Fiestas Patrias, promoviendo la unidad, el descanso y el turismo interno en el país."
+title: "🤔 ¿Por qué es Feriado el 20 de Septiembre en Chile?"
+description: "💡 Explora el motivo detrás del feriado del 20 de septiembre en Chile y su importancia para prolongar las Fiestas Patrias, promoviendo la unidad, el descanso y el turismo interno en el país."
 keywords: ["feriado 20 septiembre Chile", "Fiestas Patrias Chile", "fin de semana largo", "feriado adicional en septiembre"]
 date: "2024-10-26"
 author: "Felipe Jofré Quevedo"

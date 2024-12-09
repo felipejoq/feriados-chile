@@ -1,6 +1,6 @@
 ---
-title: "¿Por qué es Feriado el 15 de Agosto en Chile?"
-description: "Explora el significado del 15 de agosto en Chile, feriado por la celebración de la Asunción de la Virgen María, y descubre las tradiciones y actividades que lo acompañan."
+title: "🙌 ¿Por qué es Feriado el 15 de Agosto en Chile?"
+description: "✅ Explora el significado del 15 de agosto en Chile, feriado por la celebración de la Asunción de la Virgen María ✨, y descubre las tradiciones y actividades que lo acompañan."
 keywords: ["Asunción de la Virgen María", "feriado 15 agosto Chile", "celebraciones religiosas Chile", "importancia cultural"]
 date: "2024-10-26"
 author: "Felipe Jofré Quevedo"

@@ -1,6 +1,6 @@
 ---
-title: "Feriado 27 de Octubre en Chile: Elecciones"  
-description: "Descubre el significado y origen del feriado electoral del 27 de octubre en Chile, dedicado a las elecciones generales, y su impacto en la participación democrática y social de los chilenos."  
+title: "🗳️ Feriado 27 de Octubre en Chile: Elecciones"
+description: "🗳️ Descubre el significado y origen del feriado electoral del 27 de octubre en Chile, dedicado a las elecciones generales, y su impacto en la participación democrática y social de los chilenos. 🇨🇱"
 keywords: ["feriado 27 octubre Chile", "Elecciones generales Chile", "feriado electoral Chile", "por qué es feriado 27 octubre"]  
 date: "2024-10-26"  
 author: "Felipe Jofré Quevedo"  
