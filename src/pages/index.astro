@@ -16,7 +16,7 @@ const currentYear = Number(format({
     tz: "America/Santiago"
 }));
 
-const holidaysCollection = await getCollection("holidays_2024") as { data: Holiday }[];
+const holidaysCollection = await getCollection("holidays_2025") as { data: Holiday }[];
 
 const nextHolidays = holidaysCollection.filter(({data}) => {
     if (data.date !== undefined && isAfter(data.date, new Date())) {

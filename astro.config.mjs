@@ -10,7 +10,7 @@ import netlify from '@astrojs/netlify';
 // https://astro.build/config
 export default defineConfig({
   experimental:{
-    serverIslands: true,
+    // serverIslands: true,
   },
   devToolbar: {
     enabled: false,
@@ -25,6 +25,6 @@ export default defineConfig({
       },
     }),
   ],
-  output: 'hybrid',
+  output: 'static',
   adapter: netlify()
 });
