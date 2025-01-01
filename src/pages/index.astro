@@ -29,8 +29,6 @@ const lastHolidays = holidaysCollection.filter(({data}) => {
     return data.date !== undefined && isBefore(data.date, new Date());
 }).map(({data}) => data).sort(sortHolidays);
 
-export const prerender = false;
-
 ---
 
 <MainLayout>
